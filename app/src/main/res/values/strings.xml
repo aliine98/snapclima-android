@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name" translatable="false">SnapClima</string>
+    <string name="search">Pesquisar</string>
+    <string name="search_city">Pesquise a cidade</string>
+    <string name="weather_icon">Ícone do clima</string>
+    <string name="celsius" translatable="false">°C</string>
+    <string name="min">Mínima</string>
+    <string name="max">Máxima</string>
+    <string name="humidity">Umidade</string>
+    <string name="percent" translatable="false">%</string>
+    <string name="precipitation">Preciptação</string>
+    <string name="wind">Vento</string>
+    <string name="mm_h" translatable="false">mm/h</string>
+    <string name="m_s" translatable="false">m/s</string>
+</resources>
