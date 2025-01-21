@@ -6,10 +6,15 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updateLayoutParams
 import br.com.aline.weather.model.CityGeocode
 import br.com.aline.weather.model.Weather
 import br.com.aline.weather.model.CityName
@@ -30,6 +35,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
+    private lateinit var main: ConstraintLayout
     private lateinit var searchInput: TextView
     private lateinit var btnSearch: Button
     private lateinit var cityNameView: TextView
@@ -52,7 +58,28 @@ class MainActivity : AppCompatActivity() {
         setupLocation()
         setupRetrofitServices()
         updateViewBasedOnLocation()
+        setupSearchListeners()
+        setupInsets()
 
+        main.setOnClickListener {
+            hideKeyboard()
+        }
+    }
+
+    private fun setupInsets() {
+        ViewCompat.setOnApplyWindowInsetsListener(main) { v, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            v.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                topMargin = insets.top
+                bottomMargin = insets.bottom
+            }
+
+            WindowInsetsCompat.CONSUMED
+        }
+    }
+
+    private fun setupSearchListeners() {
         btnSearch.setOnClickListener {
             getCoordinates(searchInput.text.toString())
             hideKeyboard()
@@ -64,10 +91,10 @@ class MainActivity : AppCompatActivity() {
                         || actionId == EditorInfo.IME_ACTION_DONE
                         || actionId == EditorInfo.IME_ACTION_SEARCH
                         || actionId == EditorInfo.IME_ACTION_SEND -> {
-                            getCoordinates(v.text.toString())
-                            hideKeyboard()
-                            return@setOnEditorActionListener true
-                        }
+                    getCoordinates(v.text.toString())
+                    hideKeyboard()
+                    return@setOnEditorActionListener true
+                }
                 else -> return@setOnEditorActionListener false
             }
         }
@@ -137,6 +164,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupViews() {
+        main = findViewById(R.id.main)
         searchInput = findViewById(R.id.search_city)
         btnSearch = findViewById(R.id.btn_search)
         cityNameView = findViewById(R.id.tv_city_name)
