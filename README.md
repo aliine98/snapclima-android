@@ -1,4 +1,4 @@
-<p align="center"><img src='https://github.com/user-attachments/assets/fdabc30f-13bd-4d51-b28b-ed9c7b9da4eb' width='500'></p>
+<p align="center" id="top"><img src='https://github.com/user-attachments/assets/fdabc30f-13bd-4d51-b28b-ed9c7b9da4eb' width='500'></p>
 
 # <p align="center">SnapClima - App Android</p>
 
@@ -87,4 +87,4 @@ Inicie o emulador de sua preferência e rode o app.
 
 Feito com ❤️ por <a href="https://github.com/aliine98">Aline Bevilacqua</a>!
 
-<a href="#snapclima---app-android">⬆ Voltar ao topo</a>
+<a href="#top">⬆ Voltar ao topo</a>
