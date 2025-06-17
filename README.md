@@ -87,4 +87,4 @@ Inicie o emulador de sua preferência e rode o app.
 
 Feito com ❤️ por <a href="https://github.com/aliine98">Aline Bevilacqua</a>!
 
-<a href="#snapclima-app-android">⬆ Voltar ao topo</a>
+<a href="#snapclima---app-android">⬆ Voltar ao topo</a>
